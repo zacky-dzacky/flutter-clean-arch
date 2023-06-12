@@ -1,18 +1,19 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_meal_app/models/user.dart';
-import 'package:flutter_meal_app/utils/constants.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
-part 'auth_rest_service.g.dart';
+import 'constants.dart';
+
+part 'rest_service.g.dart';
 
 @singleton
-@RestApi(baseUrl: Constants.AUTH_BASE_URL)
-abstract class AuthRestService {
-  factory AuthRestService(Dio dio, {String baseUrl}) = _AuthRestService;
+@RestApi(baseUrl: Constants.BASE_URL)
+abstract class RestService {
+  factory RestService(Dio dio, {String baseUrl}) = _RestService;
 
   @factoryMethod
-  static AuthRestService create() {
+  static RestService create() {
     final dio = Dio()
       ..interceptors.add(LogInterceptor(
           responseBody: true,
@@ -21,7 +22,7 @@ abstract class AuthRestService {
           responseHeader: true,
           request: true,
           requestBody: true));
-    return AuthRestService(dio);
+    return RestService(dio);
   }
 
   @POST('/accounts:signUp?key={authKey}')

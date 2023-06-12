@@ -38,11 +38,15 @@ dependencies:
 
   # Functional Programming in Dart. Purify your Dart code using efficient immutable data structures,
   # monads, lenses and other FP tools.
-  dartz: ^0.8.9
+  dartz: ^0.10.1
 
   # An abstract class that helps to implement equality without needing to explicitly
   # override == and hashCode
-  equatable: ^1.1.1
+  equatable: ^2.0.5
+  dio: ^5.2.1
+  injectable: ^1.5.4
+  retrofit: ^4.0.1
+  json_annotation: ^4.8.1
 
 dev_dependencies:
   flutter_test:
